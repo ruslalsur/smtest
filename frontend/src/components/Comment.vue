@@ -9,7 +9,7 @@
         @cancelBtnClick="onCancel"
       />
       <div class="row" v-if="!editMode">
-        <div class="col-8 d-inline-flex align-items-baseline">
+        <div class="col d-inline-flex align-items-baseline">
           <div>{{ comment.text }}</div>
           <div
             v-if="comment.author.id == currentUser.id"
@@ -79,11 +79,16 @@
       </div>
     </div>
 
-    <div class="text-muted fs-6 d-flex align-items-center">
+    <div v-if="!editMode" class="text-muted fs-6 d-flex align-items-center">
       <img src="@/assets/avatar.svg" />&nbsp;
       {{ comment.author.firstName }}
       {{ comment.author.lastName }}&nbsp;
-      {{ new Date(comment.createdAt).toLocaleDateString() }}
+      {{
+        new Date(comment.createdAt).toLocaleDateString('ru-RU', {
+          month: 'long',
+          day: 'numeric',
+        })
+      }}
     </div>
   </div>
 </template>
