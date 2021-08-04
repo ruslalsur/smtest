@@ -24,6 +24,7 @@ class UserController extends AbstractController
         $result = [];
         foreach ($users as $user) {
             $result[] = [
+                'id' => $user->getId(),
                 'firstName' => $user->getFirstName(),
                 'lastName' => $user->getLastName()
             ];
@@ -45,7 +46,8 @@ class UserController extends AbstractController
             );
         }
 
-        return $this->json([
+        return $this->json([    
+            'id' => $user->getId(),        
             'firstName' => $user->getFirstName(),
             'LastName' => $user->getLastName()
         ]);
@@ -66,6 +68,7 @@ class UserController extends AbstractController
         $result = [];
         foreach ($users as $user) {
             $result[] = [
+                'id' => $user->getId(),
                 'firstName' => $user->getFirstName(),
                 'lastName' => $user->getLastName()
             ];

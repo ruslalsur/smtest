@@ -103,23 +103,26 @@ class Post
 
     public function transformPostToArray($post)
     {        
-
         $result = [
+            'id' => $post->getId(),
             'title' => $post->getTitle(),
             'text' => $post->getText(),
             'comments' => []
         ];
 
-        foreach ($post->comments as $coment) {
-            array_push($result['comments'], [
-                'text' => $coment->getText(),
-                'createdAt' => $coment->getCreatedAt(),
+        foreach ($post->comments as $comment) {
+            array_unshift($result['comments'], [
+                'id' => $comment->getId(),
+                'text' => $comment->getText(),
+                'createdAt' => $comment->getCreatedAt(),
                 'author' => [
-                    'firstName' => $coment->getUser()->getFirstName(),
-                    'lastName' => $coment->getUser()->getLastName(),
+                    'id' => $comment->getUser()->getId(),
+                    'firstName' => $comment->getUser()->getFirstName(),
+                    'lastName' => $comment->getUser()->getLastName(),
                 ]
             ]);
         }
+
 
         return $result;
     }

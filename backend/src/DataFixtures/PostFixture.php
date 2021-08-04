@@ -20,8 +20,8 @@ class PostFixture extends Fixture
     public function load(ObjectManager $manager)
     { 
         $post = new Post(
-            $this->faker->sentence(6),
-            $this->faker->sentence(200)
+            $this->faker->sentence(4),
+            $this->faker->sentence(70)
         );
 
         $manager->persist($post);

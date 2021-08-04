@@ -3,7 +3,7 @@
 - docker-compose up -d --build (создать контейнеры)
 - docker-compose exec php /bin/bash (зайти в один из них)
 - symfony console doctrine:migrations:migrate (применить миграции)
-- symfony console doctrine:fixtures:load (фейковые данные)
+- symfony console doctrine:fixtures:load (Начальные данные для базы)
 - http://localhost:3000/ (запуск проекта)
 
 # Дополнительная информация
@@ -16,3 +16,7 @@ mysql -usmuser -psmuser --port=33060 smdb
 
 docker-compose exec database /bin/bash
 mysql -usmuser -psmuser --port=3306 smdb
+
+## Про localstorage (только в случае повторных посевов после запуска приложения)
+
+Авторизации, как и логаута нету, поэтому, если сеять в базу данных после запуска приложения, уберите старого пользователя из localstorage руками.

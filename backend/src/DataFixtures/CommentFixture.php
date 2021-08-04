@@ -37,7 +37,7 @@ class CommentFixture extends Fixture implements DependentFixtureInterface
             $manager->persist($user); 
 
             $comment = new Comment(
-                $this->faker->sentence(50),
+                $this->faker->sentence(5),
                 $this->faker->date(),
                 $post,  
                 $user  

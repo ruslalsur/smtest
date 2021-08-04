@@ -33,7 +33,7 @@ class CommentController extends AbstractController
             );
         }
 
-        $comment = new Comment($body['text'], $body['createdAt'], $post, $user);
+        $comment = new Comment($body['text'], date("Y-m-d"), $post, $user);
         
         $manager->persist($comment);
         $post = $comment->getPost();
