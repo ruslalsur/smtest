@@ -3,12 +3,9 @@
 - cd smtest
 - docker-compose up -d --build (создать контейнеры)
 - docker-compose exec php /bin/bash (зайти в один из них)
-- composer install
+- composer install (установить зависимости бакенда)
 - symfony console doctrine:migrations:migrate (применить миграции)
 - symfony console doctrine:fixtures:load (Начальные данные для базы)
-- exit
-
-- cd smtest/frontend && npm install
 - http://localhost:3000/ (запуск проекта)
 
 # Дополнительная информация
