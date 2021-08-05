@@ -9,9 +9,13 @@
       id="commentInput"
       placeholder="Написать комментарий"
     />
+
+    <!--Блок для отображения ошибки валидации поля-->
     <div v-if="isEmpty" class="ms-2 text-danger small">
       Поле не может быть пустым
     </div>
+
+    <!--Блок с кнопками-->
     <div class="d-flex mt-3" v-if="showButtons">
       <button @click="onSave" type="button" class="btn btn-primary me-2">
         Сохранить
@@ -26,7 +30,7 @@
 <script>
 import 'bootstrap/dist/css/bootstrap.min.css';
 export default {
-  name: 'CommentInputBlock',
+  name: 'InputBlock',
   props: {
     focused: {
       type: Boolean,

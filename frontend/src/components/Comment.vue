@@ -1,7 +1,8 @@
 <template>
   <div class="row">
+    <!--Редактор комментария-->
     <div class="col">
-      <CommentInputBlock
+      <InputBlock
         v-if="editMode"
         focused
         :content="comment.text"
@@ -52,6 +53,20 @@
         </div>
       </div>
 
+      <!--Информация об авторстве комментария-->
+      <div v-if="!editMode" class="text-muted fs-6 d-flex align-items-center">
+        <img src="@/assets/avatar.svg" />&nbsp;
+        {{ comment.author.firstName }}
+        {{ comment.author.lastName }}&nbsp;
+        {{
+          new Date(comment.createdAt).toLocaleDateString('ru-RU', {
+            month: 'long',
+            day: 'numeric',
+          })
+        }}
+      </div>
+
+      <!--Модальное окно подтверждения удаления комментария-->
       <div class="modal fade" ref="modal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
@@ -78,29 +93,17 @@
         </div>
       </div>
     </div>
-
-    <div v-if="!editMode" class="text-muted fs-6 d-flex align-items-center">
-      <img src="@/assets/avatar.svg" />&nbsp;
-      {{ comment.author.firstName }}
-      {{ comment.author.lastName }}&nbsp;
-      {{
-        new Date(comment.createdAt).toLocaleDateString('ru-RU', {
-          month: 'long',
-          day: 'numeric',
-        })
-      }}
-    </div>
   </div>
 </template>
 <script>
 import 'bootstrap/dist/css/bootstrap.min.css';
-import CommentInputBlock from './CommentInputBlock';
+import InputBlock from './InputBlock';
 import { Modal } from 'bootstrap';
 
 export default {
   name: 'Comment',
   components: {
-    CommentInputBlock,
+    InputBlock,
   },
   props: {
     comment: Object,
