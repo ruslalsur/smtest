@@ -19,6 +19,6 @@ mysql -usmuser -psmuser --port=33060 smdb
 docker-compose exec database /bin/bash
 mysql -usmuser -psmuser --port=3306 smdb
 
-## Про localstorage (при посевоах после запуска приложения)
+## Про localstorage (при посевах после запуска приложения)
 
 Авторизации, как и логаута нету, поэтому, если сеять в базу данных после запуска приложения, уберите пользователя из localstorage руками.
