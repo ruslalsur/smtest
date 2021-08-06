@@ -57,11 +57,7 @@ export default {
     };
   },
   async mounted() {
-    if (!this.currentUser) {
-      this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
-      if (!this.currentUser) await this.getCurrentUser();
-    }
-
+    if (!this.currentUser) await this.getCurrentUser();
     if (!this.post) await this.fetchPosts();
   },
 };
