@@ -1,12 +1,12 @@
 <script>
 import axios from 'axios';
-
+axios.defaults.baseURL = 'http://localhost:8000';
 export default {
   methods: {
     async getCurrentUser() {
       try {
         const response = await axios({
-          url: 'http://localhost:8000/user',
+          url: '/user',
         });
 
         if (!response) throw new Error('ошибка');
@@ -20,7 +20,7 @@ export default {
 
     async fetchPosts() {
       try {
-        const response = await axios({ url: 'http://localhost:8000' });
+        const response = await axios({ url: '/' });
         if (!response) throw new Error('ошибка');
         this.post = response.data[0];
       } catch (error) {
@@ -31,7 +31,7 @@ export default {
     async addComment(text) {
       try {
         const response = await axios({
-          url: 'http://localhost:8000/comments/add',
+          url: '/comments/add',
           method: 'POST',
           data: {
             text,
@@ -51,7 +51,7 @@ export default {
     async updateComment(id, text) {
       try {
         const response = await axios({
-          url: `http://localhost:8000/comments/update/${id}`,
+          url: `/comments/update/${id}`,
           method: 'PATCH',
           data: {
             text,
@@ -71,7 +71,7 @@ export default {
     async removeComment(id) {
       try {
         const response = await axios({
-          url: `http://localhost:8000/comments/remove/${id}`,
+          url: `/comments/remove/${id}`,
           method: 'DELETE',
         });
 

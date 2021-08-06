@@ -96,7 +96,6 @@
   </div>
 </template>
 <script>
-import 'bootstrap/dist/css/bootstrap.min.css';
 import InputBlock from './InputBlock';
 import { Modal } from 'bootstrap';
 

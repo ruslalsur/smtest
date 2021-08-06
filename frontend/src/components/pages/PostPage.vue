@@ -35,7 +35,6 @@
   </div>
 </template>
 <script>
-import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from '../Header';
 import Comment from '../Comment';
 import InputBlock from '../InputBlock';
